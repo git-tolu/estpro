@@ -60,7 +60,7 @@ flutter:
   fonts:
   - family:  MyFlutterApp
     fonts:
-      - asset: fonts/MyFlutterApp.ttf
+      - asset: cusicons/fonts/MyFlutterApp.ttf
 
   # To add assets to your application, add an assets section, like this:
   assets:

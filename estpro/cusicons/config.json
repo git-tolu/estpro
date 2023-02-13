@@ -1,0 +1,76 @@
+{
+  "name": "",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "b9a6db551f628450d723cf22797111d2",
+      "css": "dashboard",
+      "code": 59392,
+      "src": "material"
+    },
+    {
+      "uid": "5e22ef9c7c7002922e61e5c88cb3c27b",
+      "css": "insert_chart",
+      "code": 59393,
+      "src": "material"
+    },
+    {
+      "uid": "58f376c8c60c911e8cd5a65becb0d932",
+      "css": "account_box",
+      "code": 59394,
+      "src": "material"
+    },
+    {
+      "uid": "5da59f89dd294fa4475a7cdbe3cd3145",
+      "css": "account_balance",
+      "code": 59395,
+      "src": "material"
+    },
+    {
+      "uid": "005fd8786a2a8ad03dc428fb5dda2ed0",
+      "css": "filter_none",
+      "code": 59396,
+      "src": "material"
+    },
+    {
+      "uid": "3b309524d24ad4b098b0034d31ee77a5",
+      "css": "apps",
+      "code": 59397,
+      "src": "material"
+    },
+    {
+      "uid": "69e80565027e4ece49ad7c3194eb7fbd",
+      "css": "backup",
+      "code": 59398,
+      "src": "material"
+    },
+    {
+      "uid": "7c31fffa1d140a037558f328c8c1a54d",
+      "css": "notifications",
+      "code": 59399,
+      "src": "material"
+    },
+    {
+      "uid": "8b7f62d1956d108110c62bb3ef614f3f",
+      "css": "explore",
+      "code": 59400,
+      "src": "material"
+    },
+    {
+      "uid": "8486605acad5af293679d4607fd47e87",
+      "css": "mail_outline",
+      "code": 59401,
+      "src": "material"
+    },
+    {
+      "uid": "aaf75809ac0342c81ff433bc87019072",
+      "css": "exit_to_app",
+      "code": 59402,
+      "src": "material"
+    }
+  ]
+}

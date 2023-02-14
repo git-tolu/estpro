@@ -3,7 +3,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'my_flutter_app_icons.dart';
 
-
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -28,7 +27,6 @@ class _DashboardState extends State<Dashboard> {
             ),
           ],
         ),
-
       ),
       drawer: SingleChildScrollView(
         child: Drawer(
@@ -39,7 +37,9 @@ class _DashboardState extends State<Dashboard> {
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                 ),
-                padding: const EdgeInsets.only(left: 30,),
+                padding: const EdgeInsets.only(
+                  left: 30,
+                ),
                 child: Column(
                   children: const [
                     Text('Profile Name'),
@@ -122,16 +122,24 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       body: Container(
+        padding: EdgeInsets.all(50),
         child: Center(
           child: Column(
             children: [
-              const Text('Profile Name', style: TextStyle(fontSize: 20,),),
+              const Text(
+                'Profile Name',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
               const Text('USERID: MOSOID'),
-              Row(
-                children: const [
-                  Icon(Icons.home),
-                  Text('Welcome to the (Side Navigation Bar)'),
-                ],
+              Center(
+                child: Row(
+                  children: const [
+                    Icon(Icons.home),
+                    Text('Welcome to the (Side Navigation Bar)'),
+                  ],
+                ),
               ),
             ],
           ),

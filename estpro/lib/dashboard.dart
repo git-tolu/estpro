@@ -1,6 +1,10 @@
+import 'dart:math';
+
+import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:gap/gap.dart';
 import 'my_flutter_app_icons.dart';
 
 class Dashboard extends StatefulWidget {
@@ -15,135 +19,252 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // top bar title
+        // backgroundColor: Styles.white,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('estPro'),
+            Text(
+              'estPro',
+              style: TextStyle(
+                color: Styles.white,
+              ),
+            ),
             Column(
-              children: const [
-                Text('Welcome'),
-                Text('Mr Moso'),
+              children:  [
+                Text(
+                  'Welcome',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Styles.white,
+                  ),
+                ),
+                Text('Mr Moso', style: TextStyle(color: Styles.white,),),
               ],
             ),
           ],
         ),
       ),
-      drawer: SingleChildScrollView(
-        child: Drawer(
+      // top bar title end
+      // sidenav
+      drawer: Drawer(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: Styles.bgColor,
+              stops: const [0.0, 1.0],
+              tileMode: TileMode.repeated,
+              transform: const GradientRotation(45 * pi / 180),
+            ),
+          ),
           child: ListView(
-            padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
+              UserAccountsDrawerHeader(
+                accountName: const Text('Flutter Dev'),
+                accountEmail: const Text('flutter.dev@example.com'),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: Styles.bgColor,
+                    stops: const [0.0, 1.0],
+                    tileMode: TileMode.repeated,
+                    transform: const GradientRotation(45 * pi / 180),
+                  ),
                 ),
-                padding: const EdgeInsets.only(
-                  left: 30,
-                ),
-                child: Column(
-                  children: const [
-                    Text('Profile Name'),
-                    Text('email Address'),
-                  ],
+                currentAccountPicture: const CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Text('F', style: TextStyle(fontSize: 40.0)),
                 ),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.insert_chart),
-                title: const Text('Dashbord'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.insert_chart),
+                title: Text('Dashbord'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.account_box),
-                title: const Text('Profile'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.account_box),
+                title: Text('Profile'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.account_balance),
-                title: const Text('Property'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.account_balance),
+                title: Text('Property'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.filter_none),
-                title: const Text('Rent Payment'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.filter_none),
+                title: Text('Rent Payment'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.apps),
-                title: const Text('Bills Payment'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.apps),
+                title: Text('Bills Payment'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.backup),
-                title: const Text('Payment Evidence'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.backup),
+                title: Text('Payment Evidence'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.notifications),
-                title: const Text('Notification'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.notifications),
+                title: Text('Notification'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.explore),
-                title: const Text('Agreement'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.explore),
+                title: Text('Agreement'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.mail_outline),
-                title: const Text('Contact Support'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.mail_outline),
+                title: Text('Contact Support'),
               ),
-              ListTile(
-                leading: const Icon(Cusicons.exit_to_app),
-                title: const Text('Log Out'),
-                onTap: () {
-                  // do something
-                },
+              const ListTile(
+                leading: Icon(Cusicons.exit_to_app),
+                title: Text('Log Out'),
               ),
             ],
           ),
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.all(50),
-        child: Center(
-          child: Column(
-            children: [
-              const Text(
-                'Profile Name',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+      // sidenav end
+      body: Column(
+        children: [
+          // first section
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: Styles.bgColor,
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              const Text('USERID: MOSOID'),
-              Center(
-                child: Row(
-                  children: const [
-                    Icon(Icons.home),
-                    Text('Welcome to the (Side Navigation Bar)'),
-                  ],
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3),
                 ),
+              ],
+            ),
+            // color: Colors.blue,
+            // decoration: const BoxDecoration(
+            //   gradient: LinearGradient(
+            //     begin: Alignment.topLeft,
+            //     end: Alignment.bottomRight,
+            //     colors: [Color(0xFF068540), Color(0xFFFFF7F00)],
+            //     stops: [0.0, 1.0],
+            //     tileMode: TileMode.repeated,
+            //     transform: GradientRotation(45),
+            //   ),
+            // ),
+            padding: const EdgeInsets.all(60),
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(30),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: const [
+                            Text(
+                              'Profile Name',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            Text('USERID: MOSOID'),
+                          ],
+                        ),
+                        const Gap(10),
+                        Row(
+                          children: const [
+                            Icon(Icons.home),
+                            Text('Welcome to the (Side Navigation Bar)'),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          // first section end
+          const Gap(40),
+          // second section
+          Container(
+            margin: const EdgeInsets.all(50),
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    color: Styles.shade,
+                    padding: const EdgeInsets.all(5),
+                    child: const Text(
+                      "UNPAID RENT INVOICE . . .",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const Gap(10),
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    // color: Colors.blue,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: Styles.bgColor,
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(5),
+                    child: const Text(
+                      "NO UNPAID RENT INVOICE",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const Gap(10),
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    color: Styles.shade,
+                    padding: const EdgeInsets.all(5),
+                    child: const Text(
+                      "UNPAID UTILITY BILLS . . .",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const Gap(10),
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    // color: Colors.grey,
+                    padding: const EdgeInsets.all(5),
+                    child: const Text(
+                      "NILL!",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const Gap(10),
+                ],
+              ),
+            ),
+          ),
+          // second section end
+        ],
       ),
     );
   }

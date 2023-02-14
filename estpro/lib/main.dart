@@ -1,3 +1,4 @@
+import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/material.dart';
 
 import 'dashboard.dart';
@@ -15,8 +16,19 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+         iconTheme:  IconThemeData(
+          color: Styles.white,
+        ),
+        appBarTheme:  AppBarTheme(
+          elevation: 1,
+          color: Styles.white,
+          iconTheme: IconThemeData(
+          color: Styles.white,
+          ),
+        ),
       ),
+      darkTheme: ThemeData.dark(), // standard dark theme
+      themeMode: ThemeMode.system, // device controls theme
       home: MyHomePage(),
     );
   }

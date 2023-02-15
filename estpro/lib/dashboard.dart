@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:js';
 
 import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
             Text(
               'estPro',
               style: TextStyle(
-                color: Styles.white,
+                color: Styles.toggle,
               ),
             ),
             Column(
@@ -36,10 +37,10 @@ class _DashboardState extends State<Dashboard> {
                   'Welcome',
                   style: TextStyle(
                     fontSize: 15,
-                    color: Styles.white,
+                    color: Styles.toggle,
                   ),
                 ),
-                Text('Mr Moso', style: TextStyle(color: Styles.white,),),
+                Text('Mr Moso', style: TextStyle(color: Styles.toggle,),),
               ],
             ),
           ],

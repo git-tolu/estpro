@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
-import 'my_flutter_app_icons.dart';
+import 'icons/my_flutter_app_icons.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});

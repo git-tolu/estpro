@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'dart:js';
 
+import 'package:estpro/screens/appbar.dart';
+import 'package:estpro/screens/sidebar.dart';
 import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -22,107 +24,12 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         // top bar title
         // backgroundColor: Styles.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'estPro',
-              style: TextStyle(
-                color: Styles.toggle,
-              ),
-            ),
-            Column(
-              children:  [
-                Text(
-                  'Welcome',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Styles.toggle,
-                  ),
-                ),
-                Text('Mr Moso', style: TextStyle(color: Styles.toggle,),),
-              ],
-            ),
-          ],
-        ),
+        title: const Appbar(),
       ),
       // top bar title end
       // sidenav
-      drawer: Drawer(
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: Styles.bgColor,
-              stops: const [0.0, 1.0],
-              tileMode: TileMode.repeated,
-              transform: const GradientRotation(45 * pi / 180),
-            ),
-          ),
-          child: ListView(
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                accountName: const Text('Flutter Dev'),
-                accountEmail: const Text('flutter.dev@example.com'),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: Styles.bgColor,
-                    stops: const [0.0, 1.0],
-                    tileMode: TileMode.repeated,
-                    transform: const GradientRotation(45 * pi / 180),
-                  ),
-                ),
-                currentAccountPicture: const CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Text('F', style: TextStyle(fontSize: 40.0)),
-                ),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.insert_chart),
-                title: Text('Dashbord'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.account_box),
-                title: Text('Profile'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.account_balance),
-                title: Text('Property'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.filter_none),
-                title: Text('Rent Payment'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.apps),
-                title: Text('Bills Payment'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.backup),
-                title: Text('Payment Evidence'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.notifications),
-                title: Text('Notification'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.explore),
-                title: Text('Agreement'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.mail_outline),
-                title: Text('Contact Support'),
-              ),
-              const ListTile(
-                leading: Icon(Cusicons.exit_to_app),
-                title: Text('Log Out'),
-              ),
-            ],
-          ),
-        ),
+      drawer: const Drawer(
+        child: Sidebar(),
       ),
       // sidenav end
       body: Column(
@@ -162,10 +69,10 @@ class _DashboardState extends State<Dashboard> {
                 children: [
                   Container(
                     margin: const EdgeInsets.all(30),
-                    child: Column(
+                    child: const Column(
                       children: [
                         Row(
-                          children: const [
+                          children: [
                             Text(
                               'Profile Name',
                               style: TextStyle(
@@ -175,13 +82,13 @@ class _DashboardState extends State<Dashboard> {
                           ],
                         ),
                         Row(
-                          children: const [
+                          children: [
                             Text('USERID: MOSOID'),
                           ],
                         ),
-                        const Gap(10),
+                        Gap(10),
                         Row(
-                          children: const [
+                          children: [
                             Icon(Icons.home),
                             Text('Welcome to the (Side Navigation Bar)'),
                           ],

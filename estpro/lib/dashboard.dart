@@ -88,9 +88,10 @@ class _DashboardState extends State<Dashboard> {
                         Row(
                           children: [
                             Icon(Icons.home),
-                            Text(
-                              'Welcome to OKO AFOR HOUSE ',
-                            
+                            Expanded(
+                              child: Text(
+                                'Welcome to OKO AFOR HOUSE (2 Mosobalaje street, Agunmo, Samoje, Oko Afor)',
+                              ),
                             ),
                           ],
                         ),

@@ -1,3 +1,4 @@
+import 'package:estpro/utils/appLayout.dart';
 import 'package:estpro/utils/appStyle.dart';
 import 'package:estpro/widgets/appbar.dart';
 import 'package:estpro/widgets/sidebar.dart';
@@ -31,12 +32,18 @@ class _RentPaymentState extends State<RentPayment> {
           children: [
             // banner
             Container(
-              height: 100,
+              height: AppLayout.GetHeight(200),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: Styles.bgColor,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+                // gradient: LinearGradient(
+                //   colors: Styles.bgColor,
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    "assets/userImages/mg-cthu--1h_NN3nqzI-unsplash.jpg",
+                  ),
                 ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [
@@ -79,7 +86,7 @@ class _RentPaymentState extends State<RentPayment> {
                       Text(
                         "OKO AFOR HOUSE",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.start,
                       ),
@@ -87,7 +94,7 @@ class _RentPaymentState extends State<RentPayment> {
                       Text(
                         "PROPERTY NAME",
                         style: TextStyle(
-                          fontSize: 10,
+                          fontSize: 15,
                         ),
                         textAlign: TextAlign.start,
                       ),
@@ -106,7 +113,7 @@ class _RentPaymentState extends State<RentPayment> {
                   Text(
                     "MY RENT PAYMENT RECORD",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 20,
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -114,7 +121,7 @@ class _RentPaymentState extends State<RentPayment> {
                   Text(
                     "No payment record yet!",
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 15,
                       color: Colors.red,
                     ),
                     textAlign: TextAlign.start,

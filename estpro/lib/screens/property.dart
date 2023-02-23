@@ -1,3 +1,4 @@
+import 'package:estpro/utils/appLayout.dart';
 import 'package:estpro/utils/appStyle.dart';
 import 'package:estpro/widgets/appbar.dart';
 import 'package:estpro/widgets/sidebar.dart';
@@ -31,7 +32,7 @@ class _PropertyState extends State<Property> {
           children: [
             // banner
             Container(
-              height: 100,
+              height: AppLayout.GetHeight(200),
               decoration: BoxDecoration(
                 // gradient: LinearGradient(
                 //   colors: Styles.bgColor,
@@ -39,8 +40,10 @@ class _PropertyState extends State<Property> {
                 //   end: Alignment.bottomRight,
                 // ),
                 image: const DecorationImage(
+                          fit: BoxFit.cover,
+
                   image: AssetImage(
-                      "assets/userImages/mg-cthu--1h_NN3nqzI-unsplash.jpg"),
+                      "assets/userImages/mg-cthu--1h_NN3nqzI-unsplash.jpg", ),
                 ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [
@@ -83,7 +86,7 @@ class _PropertyState extends State<Property> {
                       Text(
                         "OKO AFOR HOUSE",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.start,
                       ),
@@ -91,7 +94,7 @@ class _PropertyState extends State<Property> {
                       Text(
                         "PROPERTY NAME",
                         style: TextStyle(
-                          fontSize: 10,
+                          fontSize: 15,
                         ),
                         textAlign: TextAlign.start,
                       ),
@@ -179,7 +182,7 @@ class _PropertyState extends State<Property> {
                       Text(
                         "OKO AFOR HOUSE AT BADAGRY",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.start,
                       ),
@@ -187,7 +190,7 @@ class _PropertyState extends State<Property> {
                       Text(
                         "DESCRIPTION",
                         style: TextStyle(
-                          fontSize: 10,
+                          fontSize: 15,
                         ),
                         textAlign: TextAlign.start,
                       ),

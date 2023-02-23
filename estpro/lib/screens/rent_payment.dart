@@ -1,23 +1,22 @@
-import 'package:estpro/screens/appbar.dart';
-import 'package:estpro/screens/sidebar.dart';
 import 'package:estpro/utils/appStyle.dart';
+import 'package:estpro/widgets/appbar.dart';
+import 'package:estpro/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class Property extends StatefulWidget {
-  const Property({super.key});
+class RentPayment extends StatefulWidget {
+  const RentPayment({super.key});
 
   @override
-  State<Property> createState() => _PropertyState();
+  State<RentPayment> createState() => _RentPaymentState();
 }
 
-class _PropertyState extends State<Property> {
+class _RentPaymentState extends State<RentPayment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        // backgroundColor: Styles.white,
         title: const Appbar(),
       ),
       // top bar title end
@@ -27,10 +26,12 @@ class _PropertyState extends State<Property> {
       ),
       // sidenav end
       body: Container(
-        padding: const EdgeInsets.all(60),
+        padding: const EdgeInsets.all(40),
         child: Column(
           children: [
+            // banner
             Container(
+              height: 100,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: Styles.bgColor,
@@ -48,7 +49,11 @@ class _PropertyState extends State<Property> {
                 ],
               ),
             ),
+            // banner end
+            const Gap(60),
+            // first section
             Container(
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: Styles.bgColor,
@@ -66,20 +71,61 @@ class _PropertyState extends State<Property> {
                 ],
               ),
               child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("OKO AFOR HOUSE"),
+                      Text(
+                        "OKO AFOR HOUSE",
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
                       Gap(10),
-                      Text("PROPERTY NAME"),
+                      Text(
+                        "PROPERTY NAME",
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
                     ],
                   ),
                   Icon(Icons.check_circle)
                 ],
               ),
             ),
+            // first section end
+            const Gap(40),
+            // second section
+            const Center(
+              child: Column(
+                children: [
+                  Text(
+                    "MY RENT PAYMENT RECORD",
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  Gap(10),
+                  Text(
+                    "No payment record yet!",
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.red,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ],
+              ),
+            )
+            // second section end
           ],
         ),
+        // third section end
       ),
     );
   }

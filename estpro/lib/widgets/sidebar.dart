@@ -1,6 +1,9 @@
+import 'package:estpro/dashboard.dart';
+import 'package:estpro/screens/bill_pay.dart';
+import 'package:estpro/screens/property.dart';
+import 'package:estpro/screens/rent_payment.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'dart:js';
 
 import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -44,26 +47,49 @@ class Sidebar extends StatelessWidget {
               child: Text('F', style: TextStyle(fontSize: 40.0)),
             ),
           ),
-          const ListTile(
-            leading: Icon(Cusicons.insert_chart),
-            title: Text('Dashbord'),
+          ListTile(
+            leading: const Icon(Cusicons.insert_chart),
+            title: const Text('Dashbord'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Dashboard()),
+              );
+            },
           ),
           const ListTile(
             leading: Icon(Cusicons.account_box),
             title: Text('Profile'),
           ),
-          const ListTile(
-            leading: Icon(Cusicons.account_balance),
-            title: Text('Property'),
-            // ontap: Property(),
+          ListTile(
+            leading: const Icon(Cusicons.account_balance),
+            title: const Text('Property'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Property()),
+              );
+            },
           ),
-          const ListTile(
-            leading: Icon(Cusicons.filter_none),
-            title: Text('Rent Payment'),
+          ListTile(
+            leading: const Icon(Cusicons.filter_none),
+            title: const Text('Rent Payment'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const RentPayment()),
+              );
+            },
           ),
-          const ListTile(
-            leading: Icon(Cusicons.apps),
-            title: Text('Bills Payment'),
+          ListTile(
+            leading: const Icon(Cusicons.apps),
+            title: const Text('Bills Payment'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const BillPay()),
+              );
+            },
           ),
           const ListTile(
             leading: Icon(Cusicons.backup),

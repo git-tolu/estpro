@@ -1,9 +1,8 @@
 import 'dart:math';
-import 'dart:js';
 
-import 'package:estpro/screens/appbar.dart';
-import 'package:estpro/screens/sidebar.dart';
 import 'package:estpro/utils/appStyle.dart';
+import 'package:estpro/widgets/appbar.dart';
+import 'package:estpro/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -23,7 +22,6 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        // backgroundColor: Styles.white,
         title: const Appbar(),
       ),
       // top bar title end
@@ -90,7 +88,10 @@ class _DashboardState extends State<Dashboard> {
                         Row(
                           children: [
                             Icon(Icons.home),
-                            Text('Welcome to the (Side Navigation Bar)'),
+                            Text(
+                              'Welcome to OKO AFOR HOUSE ',
+                            
+                            ),
                           ],
                         ),
                       ],

@@ -16,14 +16,15 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-         iconTheme:  IconThemeData(
+        iconTheme: IconThemeData(
           color: Styles.white,
         ),
-        appBarTheme:  AppBarTheme(
+        appBarTheme: AppBarTheme(
           elevation: 1,
           color: Styles.white,
+          titleTextStyle: const TextStyle(color: Colors.black),
           iconTheme: IconThemeData(
-          color: Styles.white,
+            color: Styles.black,
           ),
         ),
       ),

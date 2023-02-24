@@ -40,10 +40,10 @@ class _PropertyState extends State<Property> {
                 //   end: Alignment.bottomRight,
                 // ),
                 image: const DecorationImage(
-                          fit: BoxFit.cover,
-
+                  fit: BoxFit.cover,
                   image: AssetImage(
-                      "assets/userImages/mg-cthu--1h_NN3nqzI-unsplash.jpg", ),
+                    "assets/userImages/mg-cthu--1h_NN3nqzI-unsplash.jpg",
+                  ),
                 ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [

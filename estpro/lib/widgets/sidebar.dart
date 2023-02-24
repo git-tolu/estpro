@@ -1,4 +1,5 @@
 import 'package:estpro/dashboard.dart';
+import 'package:estpro/login_page.dart';
 import 'package:estpro/screens/bill_pay.dart';
 import 'package:estpro/screens/property.dart';
 import 'package:estpro/screens/rent_payment.dart';
@@ -107,9 +108,15 @@ class Sidebar extends StatelessWidget {
             leading: Icon(Cusicons.mail_outline),
             title: Text('Contact Support'),
           ),
-          const ListTile(
-            leading: Icon(Cusicons.exit_to_app),
-            title: Text('Log Out'),
+          ListTile(
+            leading: const Icon(Cusicons.exit_to_app),
+            title: const Text('Log Out'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
+            },
           ),
         ],
       ),

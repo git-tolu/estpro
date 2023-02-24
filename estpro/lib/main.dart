@@ -1,3 +1,4 @@
+import 'package:estpro/login_page.dart';
 import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/material.dart';
 
@@ -41,8 +42,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Future<void> refreshPage() async {
+    await Future.delayed(const Duration(seconds: 1));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Dashboard();
+    return RefreshIndicator(
+      onRefresh: refreshPage,
+      child: const LoginPage(),
+    );
   }
 }

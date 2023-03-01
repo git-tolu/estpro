@@ -20,11 +20,18 @@ class Appbar extends StatelessWidget {
         Column(
           children: [
             InkWell(
-              child: const Text(
-                'Welcome',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
+              child:  const Column(
+                children: [
+                  Text(
+                    'Welcome',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    'Profile Name',
+                  ),
+                ],
               ),
               onTap: () {
                 showMenu(
@@ -37,8 +44,18 @@ class Appbar extends StatelessWidget {
                         //   left: 40,
                         // ),
                         child: const UserAccountsDrawerHeader(
-                          accountName: Text('Flutter Dev'),
-                          accountEmail: Text('flutter.dev@example.com'),
+                          accountName: Text(
+                            'Flutter Dev',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                          accountEmail: Text(
+                            'flutter.dev@example.com',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
                           decoration: BoxDecoration(
                             // gradient: LinearGradient(
                             //   begin: Alignment.topLeft,
@@ -50,10 +67,15 @@ class Appbar extends StatelessWidget {
                             // ),
                             color: Colors.transparent,
                           ),
-                          
                           currentAccountPicture: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Text('F', style: TextStyle(fontSize: 40.0)),
+                            backgroundColor: Colors.black,
+                            child: Text(
+                              'F',
+                              style: TextStyle(
+                                fontSize: 40.0,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -85,53 +107,7 @@ class Appbar extends StatelessWidget {
                     ),
                   ],
                 );
-                // DropdownMenuItem(
-                //   child: ListView(
-                //     children: [
-                //       UserAccountsDrawerHeader(
-                //         accountName: const Text('Flutter Dev'),
-                //         accountEmail: const Text('flutter.dev@example.com'),
-                //         decoration: BoxDecoration(
-                //           gradient: LinearGradient(
-                //             begin: Alignment.topLeft,
-                //             end: Alignment.bottomRight,
-                //             colors: Styles.bgColor,
-                //             stops: const [0.0, 1.0],
-                //             tileMode: TileMode.repeated,
-                //             transform: const GradientRotation(45 * pi / 180),
-                //           ),
-                //         ),
-                //         currentAccountPicture: const CircleAvatar(
-                //           backgroundColor: Colors.white,
-                //           child: Text('F', style: TextStyle(fontSize: 40.0)),
-                //         ),
-                //       ),
-                //       const ListTile(
-                //         leading: Icon(Cusicons.account_box),
-                //         title: Text('Profile'),
-                //       ),
-                //       const ListTile(
-                //         leading: Icon(Icons.settings),
-                //         title: Text('Profile'),
-                //       ),
-                //       ListTile(
-                //         leading: const Icon(Cusicons.exit_to_app),
-                //         title: const Text('Log Out'),
-                //         onTap: () {
-                //           Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //                 builder: (context) => const LoginPage()),
-                //           );
-                //         },
-                //       ),
-                //     ],
-                //   ),
-                // );
               },
-            ),
-            const Text(
-              'Profile Name',
             ),
           ],
         ),

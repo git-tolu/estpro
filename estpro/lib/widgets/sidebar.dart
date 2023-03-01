@@ -45,12 +45,26 @@ class Sidebar extends StatelessWidget {
             ),
             currentAccountPicture: const CircleAvatar(
               backgroundColor: Colors.white,
-              child: Text('F', style: TextStyle(fontSize: 40.0)),
+              child: Text(
+                'F',
+                style: TextStyle(
+                  fontSize: 40.0,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
           ListTile(
-            leading: const Icon(Cusicons.insert_chart),
-            title: const Text('Dashbord'),
+            leading: const Icon(
+              Cusicons.insert_chart,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Dashbord',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -59,12 +73,28 @@ class Sidebar extends StatelessWidget {
             },
           ),
           const ListTile(
-            leading: Icon(Cusicons.account_box),
-            title: Text('Profile'),
+            leading: Icon(
+              Cusicons.account_box,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Profile',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           ListTile(
-            leading: const Icon(Cusicons.account_balance),
-            title: const Text('Property'),
+            leading: const Icon(
+              Cusicons.account_balance,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Property',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -73,8 +103,16 @@ class Sidebar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Cusicons.filter_none),
-            title: const Text('Rent Payment'),
+            leading: const Icon(
+              Cusicons.filter_none,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Rent Payment',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -83,8 +121,16 @@ class Sidebar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Cusicons.apps),
-            title: const Text('Bills Payment'),
+            leading: const Icon(
+              Cusicons.apps,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Bills Payment',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -93,24 +139,64 @@ class Sidebar extends StatelessWidget {
             },
           ),
           const ListTile(
-            leading: Icon(Cusicons.backup),
-            title: Text('Payment Evidence'),
+            leading: Icon(
+              Cusicons.backup,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Payment Evidence',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           const ListTile(
-            leading: Icon(Cusicons.notifications),
-            title: Text('Notification'),
+            leading: Icon(
+              Cusicons.notifications,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Notification',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           const ListTile(
-            leading: Icon(Cusicons.explore),
-            title: Text('Agreement'),
+            leading: Icon(
+              Cusicons.explore,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Agreement',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           const ListTile(
-            leading: Icon(Cusicons.mail_outline),
-            title: Text('Contact Support'),
+            leading: Icon(
+              Cusicons.mail_outline,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Contact Support',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           ListTile(
-            leading: const Icon(Cusicons.exit_to_app),
-            title: const Text('Log Out'),
+            leading: const Icon(
+              Cusicons.exit_to_app,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Log Out',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             onTap: () {
               Navigator.push(
                 context,

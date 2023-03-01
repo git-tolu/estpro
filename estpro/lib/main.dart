@@ -28,9 +28,11 @@ class MyApp extends StatelessWidget {
             color: Styles.black,
           ),
         ),
+        primarySwatch: Colors.blue,
       ),
-      darkTheme: ThemeData.dark(), // standard dark theme
-      themeMode: ThemeMode.system, // device controls theme
+      // darkTheme: ThemeData.dark(), // standard dark theme
+      // themeMode: ThemeMode.system, // device controls theme
+
       home: MyHomePage(),
     );
   }

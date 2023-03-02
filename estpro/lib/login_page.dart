@@ -10,6 +10,7 @@ class LoginPage extends StatelessWidget {
     await Future.delayed(const Duration(seconds: 1));
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

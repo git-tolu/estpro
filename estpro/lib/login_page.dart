@@ -1,15 +1,68 @@
+import 'dart:convert';
+// import 'dart:js';
+
 import 'package:estpro/dashboard.dart';
+import 'package:estpro/test_login.dart';
 import 'package:estpro/utils/appLayout.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:http/http.dart' as http;
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
 
-  Future<void> refreshPage() async {
-    await Future.delayed(const Duration(seconds: 1));
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController usernameController = TextEditingController();
+
+  final TextEditingController passwordController = TextEditingController();
+
+  // Future<void> refreshPage() async {
+  //   await Future.delayed(const Duration(seconds: 1));
+  // }
+
+  Future<void> _loginProcessing() async {
+    String url = 'http://192.168.137.137/mosobolajeMobileApi/login.php';
+    final http.Response response = await http.post(
+      Uri.parse(url),
+      body: {
+        'username': usernameController.text,
+        'password': passwordController.text
+      },
+    );
+    final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      if (responseData['status'] == 200) {
+        // ignore: use_build_context_synchronously
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Dashboard()),
+        );
+        
+      } else {
+        // ignore: use_build_context_synchronously
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text("Warning"),
+            content: responseData['login'],
+            actions: [
+              TextButton(
+                onPressed:() => Navigator.pop(context),
+                child: const Text('ok'),
+              )
+            ],
+          ),
+        );
+      }
+    } else {
+      throw Exception("Failed to authenticate user");
+    }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +92,7 @@ class LoginPage extends StatelessWidget {
                   style: const TextStyle(
                     color: Colors.black,
                   ),
-                  controller: TextEditingController(),
+                  controller: usernameController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -58,7 +111,7 @@ class LoginPage extends StatelessWidget {
                     color: Colors.black,
                   ),
                   obscureText: true,
-                  controller: TextEditingController(),
+                  controller: passwordController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -84,10 +137,11 @@ class LoginPage extends StatelessWidget {
                   ),
                   child: const Text('SIGN IN'),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Dashboard()));
+                    _loginProcessing();
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const Dashboard()));
                   },
                 ),
               ),

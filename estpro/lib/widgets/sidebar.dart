@@ -11,11 +11,36 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import '../icons/my_flutter_app_icons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:text_tools/text_tools.dart';
 
-class Sidebar extends StatelessWidget {
+class Sidebar extends StatefulWidget {
   const Sidebar({super.key});
 
   @override
+  State<Sidebar> createState() => _SidebarState();
+}
+
+class _SidebarState extends State<Sidebar> {
+  @override
+  void initState() {
+    super.initState();
+    _loadDataFromSession();
+  }
+
+  String email = '';
+  String userName = '';
+
+  void _loadDataFromSession() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String emailinit = prefs.getString('email') ?? '';
+    String userNameint = prefs.getString('user_name') ?? '';
+    setState(() {
+      email = emailinit;
+      userName = userNameint;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -31,8 +56,13 @@ class Sidebar extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: const Text('Flutter Dev'),
-            accountEmail: const Text('flutter.dev@example.com'),
+            accountName: Text(
+              email.toUpperCase(),
+            ),
+            accountEmail: Text(
+              // userName,
+              TextTools.toUppercaseAnyLetter(text: userName),
+            ),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -200,7 +230,7 @@ class Sidebar extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  LoginPage()),
+                MaterialPageRoute(builder: (context) => LoginPage()),
               );
             },
           ),

@@ -52,8 +52,10 @@ class _LoginPageState extends State<LoginPage> {
 
     if (response.statusCode == 200) {
       if (responseData['status'] == 200) {
-        String name = usernameController.text.trim();
-        prefs.setString('user_name', name);
+        prefs.setString('user_name', responseData['fullname']);
+        prefs.setString('user_id', responseData['user_id']);
+        prefs.setString('email', responseData['email']);
+
         // ignore: use_build_context_synchronously
         Navigator.push(
           context,

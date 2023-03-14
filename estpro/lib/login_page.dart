@@ -7,6 +7,8 @@ import 'package:estpro/utils/appLayout.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
@@ -19,13 +21,26 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController usernameController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+  late SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
+
+  void initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+  }
+
+  // void _saveNameToSession() {}
 
   // Future<void> refreshPage() async {
   //   await Future.delayed(const Duration(seconds: 1));
   // }
 
   Future<void> _loginProcessing() async {
-    String url = 'http://192.168.137.137/mosobolajeMobileApi/login.php';
+    String url = 'http://192.168.79.137/mosobolajeMobileApi/auth/login.php';
     final http.Response response = await http.post(
       Uri.parse(url),
       body: {
@@ -37,12 +52,13 @@ class _LoginPageState extends State<LoginPage> {
 
     if (response.statusCode == 200) {
       if (responseData['status'] == 200) {
+        String name = usernameController.text.trim();
+        prefs.setString('user_name', name);
         // ignore: use_build_context_synchronously
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const Dashboard()),
         );
-        
       } else {
         // ignore: use_build_context_synchronously
         showDialog(
@@ -52,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
             content: responseData['login'],
             actions: [
               TextButton(
-                onPressed:() => Navigator.pop(context),
+                onPressed: () => Navigator.pop(context),
                 child: const Text('ok'),
               )
             ],

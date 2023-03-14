@@ -4,11 +4,32 @@ import 'package:estpro/icons/my_flutter_app_icons.dart';
 import 'package:estpro/login_page.dart';
 import 'package:estpro/utils/appStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Appbar extends StatelessWidget {
-  const Appbar({super.key});
+class Appbar extends StatefulWidget {
+  Appbar({super.key});
 
   @override
+  State<Appbar> createState() => _AppbarState();
+}
+
+class _AppbarState extends State<Appbar> {
+  String userName = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDataFromSession();
+  }
+
+  void _loadDataFromSession() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String name = prefs.getString('user_name') ?? '';
+    setState(() {
+      userName = name;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -20,17 +41,18 @@ class Appbar extends StatelessWidget {
         Column(
           children: [
             InkWell(
-              child:  const Column(
+              child:  Column(
                 children: [
-                  Text(
+                  const Text(
                     'Welcome',
                     style: TextStyle(
                       fontSize: 15,
                     ),
                   ),
                   Text(
-                    'Profile Name',
+                    '$userName',
                   ),
+                  
                 ],
               ),
               onTap: () {
@@ -100,7 +122,7 @@ class Appbar extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>  LoginPage()),
+                                builder: (context) => LoginPage()),
                           );
                         },
                       ),

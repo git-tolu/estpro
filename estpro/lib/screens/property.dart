@@ -18,7 +18,7 @@ class _PropertyState extends State<Property> {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        title: const Appbar(),
+        title:  Appbar(),
       ),
       // top bar title end
       // sidenav

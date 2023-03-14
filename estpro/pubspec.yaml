@@ -39,7 +39,7 @@ dependencies:
   gap: ^2.0.0
   js: ^0.6.2
   http: ^0.13.3
-  flutter_session: ^0.1.1
+  shared_preferences: ^2.0.18
 dev_dependencies:
   flutter_test:
     sdk: flutter

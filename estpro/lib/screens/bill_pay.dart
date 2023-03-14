@@ -18,7 +18,7 @@ class _BillPayState extends State<BillPay> {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        title: const Appbar(),
+        title:  Appbar(),
       ),
       // top bar title end
       // sidenav

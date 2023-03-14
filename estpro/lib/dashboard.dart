@@ -23,7 +23,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        title: const Appbar(),
+        title:  Appbar(),
       ),
       // top bar title end
       // sidenav

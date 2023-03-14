@@ -54,6 +54,7 @@ class _LoginPageState extends State<LoginPage> {
       if (responseData['status'] == 200) {
         prefs.setString('user_name', responseData['fullname']);
         prefs.setString('user_id', responseData['user_id']);
+        prefs.setString('paddress', responseData['paddress']);
         prefs.setString('email', responseData['email']);
 
         // ignore: use_build_context_synchronously

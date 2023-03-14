@@ -12,7 +12,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import '../icons/my_flutter_app_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:text_tools/text_tools.dart';
+import 'package:intl/intl.dart';
 
 class Sidebar extends StatefulWidget {
   const Sidebar({super.key});
@@ -42,16 +42,18 @@ class _SidebarState extends State<Sidebar> {
   }
 
   Widget build(BuildContext context) {
+
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: Styles.bgColor,
-          stops: const [0.0, 1.0],
-          tileMode: TileMode.repeated,
-          transform: const GradientRotation(45 * pi / 180),
-        ),
+        color: Styles.bgColor,
+        // gradient: LinearGradient(
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        //   colors: Styles.bgColor,
+        //   stops: const [0.0, 1.0],
+        //   tileMode: TileMode.repeated,
+        //   transform: const GradientRotation(45 * pi / 180),
+        // ),
       ),
       child: ListView(
         children: <Widget>[
@@ -60,24 +62,24 @@ class _SidebarState extends State<Sidebar> {
               email.toUpperCase(),
             ),
             accountEmail: Text(
-              // userName,
-              TextTools.toUppercaseAnyLetter(text: userName),
+              userName.toUpperCase(),
             ),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: Styles.bgColor,
-                stops: const [0.0, 1.0],
-                tileMode: TileMode.repeated,
-                transform: const GradientRotation(45 * pi / 180),
-              ),
+              color: Styles.bgColor2,
+              // gradient: LinearGradient(
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              //   colors: Styles.bgColor,
+              //   stops: const [0.0, 1.0],
+              //   tileMode: TileMode.repeated,
+              //   transform: const GradientRotation(45 * pi / 180),
+              // ),
             ),
-            currentAccountPicture: const CircleAvatar(
+            currentAccountPicture:  CircleAvatar(
               backgroundColor: Colors.white,
               child: Text(
-                'F',
-                style: TextStyle(
+                userName[0].toUpperCase(),
+                style: const TextStyle(
                   fontSize: 40.0,
                   color: Colors.black,
                 ),

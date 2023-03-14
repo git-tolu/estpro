@@ -14,19 +14,21 @@ class Appbar extends StatefulWidget {
 }
 
 class _AppbarState extends State<Appbar> {
-  String userName = '';
-
   @override
   void initState() {
     super.initState();
     _loadDataFromSession();
   }
 
+  String email = '';
+  String userName = '';
   void _loadDataFromSession() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String name = prefs.getString('user_name') ?? '';
+    String emailinit = prefs.getString('email') ?? '';
+    String userNameint = prefs.getString('user_name') ?? '';
     setState(() {
-      userName = name;
+      email = emailinit;
+      userName = userNameint;
     });
   }
 
@@ -41,7 +43,7 @@ class _AppbarState extends State<Appbar> {
         Column(
           children: [
             InkWell(
-              child:  Column(
+              child: Column(
                 children: [
                   const Text(
                     'Welcome',
@@ -50,9 +52,8 @@ class _AppbarState extends State<Appbar> {
                     ),
                   ),
                   Text(
-                    '$userName',
+                    userName.toUpperCase(),
                   ),
-                  
                 ],
               ),
               onTap: () {
@@ -65,20 +66,20 @@ class _AppbarState extends State<Appbar> {
                         // padding: EdgeInsets.only(
                         //   left: 40,
                         // ),
-                        child: const UserAccountsDrawerHeader(
+                        child:  UserAccountsDrawerHeader(
                           accountName: Text(
-                            'Flutter Dev',
-                            style: TextStyle(
+                            userName.toUpperCase(),
+                            style: const TextStyle(
                               color: Colors.black,
                             ),
                           ),
                           accountEmail: Text(
-                            'flutter.dev@example.com',
-                            style: TextStyle(
+                            email.toUpperCase(),
+                            style: const TextStyle(
                               color: Colors.black,
                             ),
                           ),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             // gradient: LinearGradient(
                             //   begin: Alignment.topLeft,
                             //   end: Alignment.bottomRight,
@@ -89,11 +90,11 @@ class _AppbarState extends State<Appbar> {
                             // ),
                             color: Colors.transparent,
                           ),
-                          currentAccountPicture: CircleAvatar(
+                          currentAccountPicture:  CircleAvatar(
                             backgroundColor: Colors.black,
                             child: Text(
-                              'F',
-                              style: TextStyle(
+                              userName[0].toUpperCase(),
+                              style: const TextStyle(
                                 fontSize: 40.0,
                                 color: Colors.white,
                               ),

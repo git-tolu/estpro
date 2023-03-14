@@ -18,7 +18,7 @@ class _PropertyState extends State<Property> {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        title:  Appbar(),
+        title: Appbar(),
       ),
       // top bar title end
       // sidenav
@@ -62,11 +62,13 @@ class _PropertyState extends State<Property> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: Styles.bgColor,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: Styles.bgColor,
+
+                // gradient: LinearGradient(
+                //   colors: Styles.bgColor,
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [
                   BoxShadow(
@@ -110,11 +112,13 @@ class _PropertyState extends State<Property> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: Styles.bgColor,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: Styles.bgColor,
+
+                // gradient: LinearGradient(
+                //   colors: Styles.bgColor,
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [
                   BoxShadow(
@@ -158,11 +162,13 @@ class _PropertyState extends State<Property> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: Styles.bgColor,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: Styles.bgColor,
+
+                // gradient: LinearGradient(
+                //   colors: Styles.bgColor,
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [
                   BoxShadow(

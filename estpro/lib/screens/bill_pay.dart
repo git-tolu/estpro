@@ -62,11 +62,13 @@ class _BillPayState extends State<BillPay> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: Styles.bgColor,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+              color: Styles.bgColor,
+
+                // gradient: LinearGradient(
+                //   colors: Styles.bgColor,
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
                 borderRadius: BorderRadius.circular(10.0),
                 boxShadow: [
                   BoxShadow(

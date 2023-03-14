@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'icons/my_flutter_app_icons.dart';
 
 class Dashboard extends StatefulWidget {
@@ -19,11 +20,35 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   @override
+  void initState() {
+    super.initState();
+    _loadDataFromSession();
+  }
+
+  String email = '';
+  String userName = '';
+  String user_id = '';
+  String paddress = '';
+
+  void _loadDataFromSession() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String emailinit = prefs.getString('email') ?? '';
+    String userNameint = prefs.getString('user_name') ?? '';
+    String userIdint = prefs.getString('user_id') ?? '';
+    String paddressInt = prefs.getString('paddress') ?? '';
+    setState(() {
+      email = emailinit;
+      userName = userNameint;
+      user_id = userIdint;
+      paddress = paddressInt;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // top bar title
-        title:  Appbar(),
+        title: Appbar(),
       ),
       // top bar title end
       // sidenav
@@ -36,11 +61,13 @@ class _DashboardState extends State<Dashboard> {
           // first section
           Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: Styles.bgColor,
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+              color: Styles.bgColor,
+
+              // gradient: LinearGradient(
+              //   colors: Styles.bgColor,
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              // ),
               borderRadius: BorderRadius.circular(10.0),
               boxShadow: [
                 BoxShadow(
@@ -68,13 +95,13 @@ class _DashboardState extends State<Dashboard> {
                 children: [
                   Container(
                     margin: const EdgeInsets.all(30),
-                    child: const Column(
+                    child: Column(
                       children: [
                         Row(
                           children: [
                             Text(
-                              'Profile Name',
-                              style: TextStyle(
+                              userName.toUpperCase(),
+                              style: const TextStyle(
                                 fontSize: 20,
                               ),
                             ),
@@ -82,16 +109,16 @@ class _DashboardState extends State<Dashboard> {
                         ),
                         Row(
                           children: [
-                            Text('USERID: MOSOID'),
+                            Text('USERID: $user_id'),
                           ],
                         ),
-                        Gap(10),
+                        const Gap(10),
                         Row(
                           children: [
-                            Icon(Icons.home),
+                            const Icon(Icons.home),
                             Expanded(
                               child: Text(
-                                'Welcome to OKO AFOR HOUSE (2 Mosobalaje street, Agunmo, Samoje, Oko Afor)',
+                                'Welcome to ${userName.toUpperCase()} House (${paddress.toUpperCase()})',
                               ),
                             ),
                           ],
@@ -135,11 +162,13 @@ class _DashboardState extends State<Dashboard> {
                       // color: Styles.shade,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: Styles.bgColor,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                        color: Styles.bgColor,
+
+                        // gradient: LinearGradient(
+                        //   colors: Styles.bgColor,
+                        //   begin: Alignment.topLeft,
+                        //   end: Alignment.bottomRight,
+                        // ),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
@@ -209,11 +238,13 @@ class _DashboardState extends State<Dashboard> {
                       // color: Styles.shade,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: Styles.bgColor,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                        color: Styles.bgColor,
+
+                        // gradient: LinearGradient(
+                        //   colors: Styles.bgColor,
+                        //   begin: Alignment.topLeft,
+                        //   end: Alignment.bottomRight,
+                        // ),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
@@ -263,11 +294,13 @@ class _DashboardState extends State<Dashboard> {
                       // color: Styles.shade,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: Styles.bgColor,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                        color: Styles.bgColor,
+
+                        // gradient: LinearGradient(
+                        //   colors: Styles.bgColor,
+                        //   begin: Alignment.topLeft,
+                        //   end: Alignment.bottomRight,
+                        // ),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
@@ -317,11 +350,13 @@ class _DashboardState extends State<Dashboard> {
                       // color: Styles.shade,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: Styles.bgColor,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                        color: Styles.bgColor,
+
+                        // gradient: LinearGradient(
+                        //   colors: Styles.bgColor,
+                        //   begin: Alignment.topLeft,
+                        //   end: Alignment.bottomRight,
+                        // ),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(

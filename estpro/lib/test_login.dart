@@ -1,108 +1,85 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
+class CurrentLocation extends StatefulWidget {
+  const CurrentLocation({super.key});
 
-class LoginForm extends StatefulWidget {
+  // const CurrentLocation({required Key key}) : super(key: key);
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _CurrentLocationState createState() => _CurrentLocationState();
 }
 
-class _LoginFormState extends State<LoginForm> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+class _CurrentLocationState extends State<CurrentLocation> {
+  late String currentLocation;
+  @override
+  void initState() {
+    super.initState();
+  }
 
-  Future<void> _login() async {
-    const String url = 'http://192.168.137.137/mosobolajeMobileApi/login.php';
-    final http.Response response = await http.post(
-      Uri.parse(url),
-      body: {
-        'username': emailController.text,
-        'password': passwordController.text,
-      },
-    );
-    final Map<String, dynamic> responseData = json.decode(response.body);
-
-    if (response.statusCode == 200) {
-      if (responseData['status'] == 'success') {
-        // Navigate to home page
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
-      } else {
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text('Error'),
-            content: Text(responseData['message']),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Location"),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                  decoration: BoxDecoration(color: Colors.teal[50]),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.location_on),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'Location',
+                                ),
+                                (currentLocation != null)
+                                    ? Text(currentLocation)
+                                    : Container(),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.amber.shade800),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Text("Get Location"),
               ),
+              // ElevatedButton(
+              //   color: Colors.blue[50],
+              //   onPressed: (){
+              //   },
+              //   child: Text("Get Location"),
+              // )
             ],
           ),
-        );
-      }
-    } else {
-      throw Exception('Failed to authenticate user');
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.all(16),
-              child: TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Email',
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(16),
-              child: TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: _login,
-              child: Text('Login'),
-            ),
-          ],
         ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Text('Welcome'),
       ),
     );
   }

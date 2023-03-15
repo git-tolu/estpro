@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return RefreshIndicator(
       onRefresh: refreshPage,
       child: LoginPage(),
-      // child: LoginForm(),
+      // child:   CurrentLocation(),
     );
   }
 }

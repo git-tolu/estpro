@@ -1,4 +1,7 @@
+
 import 'dart:convert';
+// import 'dart:html';
+import 'dart:io';
 // import 'dart:js';
 
 import 'package:estpro/dashboard.dart';
@@ -8,7 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:device_info/device_info.dart';
+import 'package:geolocator/geolocator.dart';
+// import 'package:permission_handler/permission_handler.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,25 +27,77 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController passwordController = TextEditingController();
   late SharedPreferences prefs;
-
   @override
   void initState() {
     super.initState();
+    _getDeviceInfo();
     initPrefs();
+    // _getCurrentLocation();
+    // _requestLocationPermission();
   }
 
+  // Future<bool> _requestLocationPermission() async {
+  //   var status = await Permission.location.request();
+  //   if (status == PermissionStatus.granted) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  // Future<Position> _getCurrentLocation() async {
+  //   bool permissionGranted = await _requestLocationPermission();
+  //   if (permissionGranted) {
+  //     // Do something with the user's location
+  //     final position = await Geolocator.getCurrentPosition(
+  //         desiredAccuracy: LocationAccuracy.high);
+  //     return position;
+  //     print('Location: ${position}');
+  //     // Position position = await _getCurrentLocation();
+  //     double latitude = position.latitude;
+  //     double longitude = position.longitude;
+  //     print('latitude: ${latitude}');
+  //     print('longitude: ${longitude}');
+  //   } else {
+  //     showDialog(
+  //       context: context,
+  //       builder: (context) => AlertDialog(
+  //         title: const Text("Warning"),
+  //         content: Text("Fialed to grab user location"),
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () => Navigator.pop(context),
+  //             child: const Text('ok'),
+  //           )
+  //         ],
+  //       ),
+  //     );
+  //     // Show an error message or handle the lack of permission in some other way
+  //   }
+  // }
+
+  Future<void> _getDeviceInfo() async {
+    final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      final AndroidDeviceInfo androidInfo = await deviceInfoPlugin.androidInfo;
+      print('Device model: ${androidInfo.model}');
+      print('Device ID: ${androidInfo.androidId}');
+      print('Android version: ${androidInfo.version.release}');
+    } else if (Platform.isIOS) {
+      final IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
+      print('Device model: ${iosInfo.model}');
+      print('Device ID: ${iosInfo.identifierForVendor}');
+      print('iOS version: ${iosInfo.systemVersion}');
+    }
+  }
+
+  @override
   void initPrefs() async {
     prefs = await SharedPreferences.getInstance();
   }
 
-  // void _saveNameToSession() {}
-
-  // Future<void> refreshPage() async {
-  //   await Future.delayed(const Duration(seconds: 1));
-  // }
-
   Future<void> _loginProcessing() async {
-    String url = 'http://192.168.79.137/mosobolajeMobileApi/auth/login.php';
+    String url = 'http://192.168.0.19/mosobolajeMobileApi/auth/login.php';
     final http.Response response = await http.post(
       Uri.parse(url),
       body: {

@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: refreshPage,
-      child: LoginPage(),
+      child: const LoginPage(),
       // child:   CurrentLocation(),
     );
   }

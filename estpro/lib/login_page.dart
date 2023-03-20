@@ -12,7 +12,7 @@ import 'package:gap/gap.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:device_info/device_info.dart';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 // import 'package:permission_handler/permission_handler.dart';
 
 class LoginPage extends StatefulWidget {
